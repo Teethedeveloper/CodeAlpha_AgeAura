@@ -6,7 +6,7 @@
 
 ## 🔮 Live Preview
 
-> [🌐 View Project Online (optional GitHub Pages link)](https://your-username.github.io/CodeAlpha_AgeAura)
+> [🌐 View Project Online (optional GitHub Pages link)](https://teethedeveloper.github.io/CodeAlpha_AgeAura/)
 
 ---
 
