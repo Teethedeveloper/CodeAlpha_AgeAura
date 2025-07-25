@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Age&Aura —  Zodiac Age Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>🌀 Age&Aura</h1>
+    <form id="ageForm" novalidate>
+      <label for="dob">Select Your Date of Birth</label>
+      <input type="date" id="dob" required />
+      <div id="validationMsg" class="validation-msg"></div>
+      <button type="submit">Reveal My Stars ✨</button>
+      <button type="button" id="resetBtn" class="reset-btn">Reset</button>
+    </form>
+
+    <!-- Loader -->
+    <div id="loader" class="loader hidden">
+      <div class="chakra-wheel"></div>
+    </div>
+
+    <!-- Result -->
+    <div id="result" class="result hidden"></div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
+
+

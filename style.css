@@ -1,0 +1,261 @@
+:root {
+  --primary: #8b5cf6;
+  --background: #fdfcfb;
+  --glass: rgba(255, 255, 255, 0.8);
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+  --shadow: rgba(0, 0, 0, 0.08);
+  --radius: 1.2rem;
+  --font-main: 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background: radial-gradient(circle at 30% 20%, #fefcea, #f1f1f1);
+  background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.container {
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: 0 0 30px var(--shadow);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  animation: fadeIn 0.8s ease-out;
+}
+
+h1 {
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+  font-size: 1.6rem;
+  user-select: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+label {
+  font-size: 1rem;
+  color: var(--text-dark);
+  text-align: left;
+}
+
+input[type="date"] {
+  padding: 0.7rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.6rem;
+  font-size: 1rem;
+  background: #fff;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+input[type="date"]:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 8px var(--primary);
+}
+
+/* Input error style */
+input.input-error {
+  border-color: #e53935;
+  box-shadow: 0 0 8px rgba(229, 57, 53, 0.7);
+  animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  50% { transform: translateX(6px); }
+  75% { transform: translateX(-6px); }
+}
+
+.validation-msg {
+  color: #e53935;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+  min-height: 1.2rem; /* keeps space to avoid layout jump */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-align: left;
+}
+
+.validation-msg.show {
+  opacity: 1;
+}
+
+button {
+  padding: 0.8rem;
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  user-select: none;
+}
+
+button:hover {
+  background: #6d28d9;
+  transform: scale(1.02);
+}
+
+.reset-btn {
+  background: radial-gradient(circle at center, #fff, #f3f4f6);
+  border: 1px solid #ddd;
+  color: #666;
+  font-weight: 500;
+  border-radius: 50px;
+  padding: 0.6rem 1.2rem;
+  margin-top: -0.4rem;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+.reset-btn:hover {
+  background: linear-gradient(to right, #ec4899, #8b5cf6);
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.6);
+}
+
+.result {
+  margin-top: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  user-select: none;
+}
+
+.result.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.zodiac-card {
+  border: none;
+  border-radius: 1.5rem;
+  padding: 2rem 1.5rem;
+  background: linear-gradient(145deg, #ffffff, #f3f4f6);
+  box-shadow:
+    0 0 10px rgba(0, 0, 0, 0.08),
+    0 0 60px var(--theme),
+    inset 0 0 12px rgba(255, 255, 255, 0.6);
+  color: var(--text-dark);
+  text-align: center;
+  animation: chakraFloat 2s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.zodiac-emoji {
+  font-size: 4rem;
+  filter: drop-shadow(0 0 10px var(--theme));
+  margin-bottom: 0.5rem;
+  animation: emojiPulse 2s ease-in-out infinite;
+}
+
+.zodiac-sign {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, var(--theme), #000);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.7rem;
+}
+
+.zodiac-traits {
+  font-style: italic;
+  color: #4b5563;
+  font-size: 1rem;
+  margin-bottom: 1.4rem;
+  line-height: 1.5;
+}
+
+.zodiac-age {
+  font-size: 1rem;
+}
+
+/* Chakra wheel loader */
+.loader {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  transition: opacity 0.3s;
+}
+
+.loader.hidden {
+  display: none;
+}
+
+.chakra-wheel {
+  width: 60px;
+  height: 60px;
+  border: 6px solid transparent;
+  border-top: 6px solid #8b5cf6;
+  border-bottom: 6px solid #ec4899;
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes chakraFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes emojiPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.15); opacity: 0.9; }
+}
+
+@media (max-width: 400px) {
+  .zodiac-card {
+    font-size: 0.95rem;
+    padding: 1.2rem;
+  }
+
+  .zodiac-sign {
+    font-size: 1.3rem;
+  }
+
+  .zodiac-emoji {
+    font-size: 2.5rem;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+  }
+}
